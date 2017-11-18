@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Vacation Rental Reviews</title>
+
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
+	rel="stylesheet"></link>
+<link rel="stylesheet" type="text/css" href="/vacationReviewsStyles.css"></link>
+
+</head>
+
+<body>
+<nav>
+  <ul>
+  <li><a href="/home">Home</a></li>
+  <li><a href="/categories">Categories</a></li>
+  <li><a href="/alltags">Tags</a></li>
+</ul>
+  </nav>
+	<header>
+
+		<h1 class="headline">Vacation Rental Reviews</h1>
+
+	</header>
+
+	<div class="article" th:each="reviews: ${reviewsAsCollection}">
+	
+		<h2>
+			<a th:href="@{/review(id=${reviews.getId()})}" th:text="${reviews.getTitle()}"></a>
+		</h2>
+		<p class="content" th:text="${reviews.getContent()}"></p>
+		
+
+	</div>
+
+</body>
+
+</html>
